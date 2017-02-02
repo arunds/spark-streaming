@@ -1,0 +1,9 @@
+
+Sample Json
+-----------
+{"timestamp":1486039244274,"bid_price":"587.6238","order_quantity":"739","symbol":"Amazon","trade_type":"stop"}
+
+Arguments 
+--------
+
+localhost:2181 rabogroup test 2
