@@ -39,6 +39,20 @@
 			<version>1.6.0</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.datastax.spark</groupId>
+			<artifactId>spark-cassandra-connector_2.11</artifactId>
+			<version>1.6.4</version>
+		</dependency>
+		
+	<dependency>
+    <groupId>com.gilt</groupId>
+    <artifactId>gfc-timeuuid_2.11</artifactId>
+    <version>0.0.7</version>
+</dependency>
+
+		
+
 		<!-- JDBC Connector Jar -->
 		
 		<dependency>

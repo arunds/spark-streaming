@@ -10,6 +10,8 @@ import org.apache.spark.streaming.Seconds
 import org.apache.spark.streaming.StreamingContext
 import org.apache.spark.streaming.dstream.DStream.toPairDStreamFunctions
 import org.apache.spark.streaming.kafka.KafkaUtils
+import org.apache.spark.sql.types.StringType
+import org.apache.spark.sql.types.StructType
 
 
 object RealTimeStockUpdate {
@@ -29,6 +31,14 @@ object RealTimeStockUpdate {
 
     val topicMap = topics.split(",").map((_, numThreads.toInt)).toMap
     val lines = KafkaUtils.createStream(ssc, zkQuorum, group, topicMap).map(_._2)
+    System.out.println("# lines = " + lines);
+    
+    val schema = (new StructType).add("timestamp", StringType).add("order_quantity", StringType)
+
+/*sqlContext.read.schema(schema).json(events)
+  .select($"action", $"timestamp".cast(LongType).cast(TimestampType))
+  .show*/
+    
     val words = lines.flatMap(_.split(" "))
     val wordCounts = words.map(x => (x, 1L))
       .reduceByKeyAndWindow(_ + _, _ - _, Minutes(10), Seconds(2), 2)
