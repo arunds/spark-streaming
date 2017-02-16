@@ -3,19 +3,22 @@
 
 #Setup Kafka Topic
 
-startKafka:
+Start zookeepr
+zookeeper-3.4.9\bin>zkServer.cmd
+
+Start Kafka:
 .\bin\windows\kafka-server-start.bat .\config\server.properties
 
-createTopic:
+Create Topic:
 bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic spark-topic
 
-deleteTopic:
+Delete Topic:
 bin\windows\kafka-topics.bat --zookeeper localhost:2181 --delete --topic spark-topic
 
-createProducer:
+Create Producer:
 bin\windows\kafka-topics.bat --zookeeper localhost:2181 --delete --topic spark-topic
 
-createConsumer:
+Create Consumer:(Optional)
 bin\windows\kafka-console-consumer.bat --zookeeper localhost:2181 --topic spark-topic
 
 #Start Cassandra
