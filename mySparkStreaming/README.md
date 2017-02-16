@@ -1,8 +1,8 @@
 # Steps to run spark-streaming program
 
 
-#Setup Kafka Topic
-
+Setup Kafka Topic
+-----------------
 Start zookeepr
 zookeeper-3.4.9\bin>zkServer.cmd
 
@@ -21,7 +21,8 @@ bin\windows\kafka-topics.bat --zookeeper localhost:2181 --delete --topic spark-t
 Create Consumer:(Optional)
 bin\windows\kafka-console-consumer.bat --zookeeper localhost:2181 --topic spark-topic
 
-#Start Cassandra
+Start Cassandra
+---------------
 apache-cassandra-3.10\bin\cassandra.bat
 
 
