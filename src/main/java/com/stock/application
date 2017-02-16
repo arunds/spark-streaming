@@ -1,7 +1,0 @@
-kinesis {
-
-  streamName: "my-stream"
-
-  region: "us-east-1"
-
-}
