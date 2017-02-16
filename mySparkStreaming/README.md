@@ -1,4 +1,4 @@
-# Steps to run spark-streaming program
+# Run spark-streaming program
 
 
 Setup Kafka Topic
